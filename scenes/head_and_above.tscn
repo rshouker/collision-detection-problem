@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://oj0i0amfbnhq"]
+
+[ext_resource type="Script" path="res://scripts/head_and_above.gd" id="1_pdn1v"]
+[ext_resource type="Texture2D" uid="uid://drqbft4ouqn0m" path="res://icon.svg" id="1_rcyxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nt7s"]
+size = Vector2(128, 128)
+
+[node name="HeadAndAbove" type="Area2D"]
+script = ExtResource("1_pdn1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rcyxx")
+
+[node name="AboveHead" type="RayCast2D" parent="."]
+target_position = Vector2(0, -128)
+collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8nt7s")

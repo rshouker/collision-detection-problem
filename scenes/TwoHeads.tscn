@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdkuhggpxqer"]
+
+[ext_resource type="Script" path="res://scripts/two_heads.gd" id="1_vhjgn"]
+[ext_resource type="PackedScene" uid="uid://oj0i0amfbnhq" path="res://scenes/head_and_above.tscn" id="2_cduph"]
+
+[node name="TwoHeads" type="Node2D"]
+script = ExtResource("1_vhjgn")
+
+[node name="Left" parent="." instance=ExtResource("2_cduph")]
+position = Vector2(64, 64)
+rotation = 1.5708
+
+[node name="Right" parent="." instance=ExtResource("2_cduph")]
+position = Vector2(192, 64)
+rotation = -1.5708
+
+[node name="TickTimer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]
